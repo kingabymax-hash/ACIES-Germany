@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/mockup/index.html" },
+    { "source": "/((?!mockup/).*)", "destination": "/mockup/$1" }
+  ]
+}
