@@ -1,0 +1,997 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Acies Europe GmbH — European insurance intermediation</title>
+<meta name="description" content="Acies Europe GmbH is the European subsidiary of the ACIES group, offering insurance intermediation services across Europe under German regulatory authorisation (§34d GewO).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#000000;
+    --ink-2:#111111;
+    --muted:#6b6b6b;
+    --rule:#e8e8e8;
+    --rule-strong:#111111;
+    --bg:#ffffff;
+    --panel:#ffffff;
+    --panel-alt:#f5f5f5;
+    --accent:#000000;
+    --accent-soft:#f2f2f2;
+    --focus:#00c3d2;
+    --max:1440px;
+    --gutter:clamp(1.25rem,4vw,4rem);
+
+    /* ACIES logo palette — extracted from the master SVG */
+    --acies-cyan:#00c3d2;
+    --acies-cyan-light:#4ec8d8;
+    --acies-blue:#00a2e0;
+    --acies-indigo:#1d4193;
+    --acies-purple:#632a8b;
+    --acies-magenta:#ef005a;
+    --acies-pink:#fa005f;
+    --acies-red:#ff2b00;
+    --acies-orange:#ff6a00;
+    --acies-amber:#ff8200;
+    --acies-yellow:#ffce00;
+
+    --acies-gradient:linear-gradient(90deg,
+      #00c3d2 0%,
+      #00a2e0 15%,
+      #632a8b 32%,
+      #ef005a 50%,
+      #ff2b00 68%,
+      #ff8200 85%,
+      #ffce00 100%);
+    --acies-gradient-warm:linear-gradient(90deg,#ef005a,#ff2b00,#ff8200,#ffce00);
+    --acies-gradient-cool:linear-gradient(90deg,#00c3d2,#00a2e0,#632a8b);
+
+  }
+
+  /* signature top stripe */
+  body::before{
+    content:"";position:fixed;top:0;left:0;right:0;height:3px;
+    background:var(--acies-gradient);z-index:100;pointer-events:none;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:5.5rem}
+  body{
+    margin:0;
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:"ss01","cv11";
+  }
+  a{color:var(--ink);text-underline-offset:3px;text-decoration-thickness:1px;
+    text-decoration-color:var(--acies-cyan);}
+  a:hover{text-decoration-thickness:2px;text-decoration-color:var(--acies-magenta)}
+  a:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+
+  /* skip link */
+  .skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem .75rem;background:var(--ink);color:#fff;z-index:100;border-radius:4px}
+
+  /* header */
+  header.site{
+    position:sticky;top:3px;z-index:10;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .bar{
+    max-width:var(--max);margin:0 auto;padding:1.1rem var(--gutter);
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .brand{display:flex;align-items:center;gap:1.15rem;text-decoration:none;color:var(--ink)}
+  .brand .logo{
+    height:58px;width:auto;display:block;
+    transform-origin:left center;
+    transition:transform .28s cubic-bezier(.2,.7,.2,1),filter .28s ease;
+    will-change:transform;
+  }
+  .brand .logo:hover{
+    transform:scale(1.08) translateX(2px);
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.18));
+  }
+  .brand .divider{
+    width:1px;height:2.4rem;background:var(--ink);display:inline-block;opacity:.18;
+  }
+  .brand .sub{
+    font-size:.82rem;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;font-weight:700;
+    line-height:1.25;
+  }
+  .brand .sub small{
+    display:block;font-size:.64rem;letter-spacing:.16em;color:var(--muted);font-weight:500;
+    margin-top:.25rem;
+  }
+  @media (max-width:560px){
+    .brand .logo{height:44px}
+    .brand .divider,.brand .sub small{display:none}
+    .brand .sub{font-size:.7rem}
+  }
+  .lang{
+    display:inline-flex;border:1px solid var(--ink);overflow:hidden;
+    font-size:.72rem;letter-spacing:.14em;font-weight:600;
+  }
+  .lang button{
+    appearance:none;background:transparent;border:0;padding:.55rem .9rem;cursor:pointer;
+    color:var(--ink);text-transform:uppercase;letter-spacing:.14em;font-weight:600;
+  }
+  .lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .lang button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+
+  /* hero */
+  section.hero{
+    max-width:var(--max);margin:0 auto;padding:6rem var(--gutter) 4rem;
+    position:relative;
+  }
+  .hero-tag{
+    display:inline-block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:700;color:var(--ink);margin:0 0 2.5rem;padding:.65rem 0;
+    position:relative;
+  }
+  .hero-tag::before,.hero-tag::after{
+    content:"";position:absolute;left:0;right:0;height:2px;
+    background:var(--acies-gradient);
+  }
+  .hero-tag::before{top:0}
+  .hero-tag::after{bottom:0}
+  .hero-tag .dot{
+    display:inline-block;width:.55rem;height:.55rem;border-radius:50%;
+    background:var(--acies-gradient);margin-right:.6rem;vertical-align:middle;
+  }
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 1.25rem;font-weight:500;
+  }
+  h1{
+    font-size:clamp(2.5rem,5.5vw,4.75rem);line-height:1.02;margin:0 0 1.75rem;
+    font-weight:700;letter-spacing:-.025em;color:var(--ink);max-width:22ch;
+    text-transform:none;
+  }
+  h1 em{
+    font-style:normal;font-weight:700;
+    background:var(--acies-gradient);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{
+    font-size:clamp(1.05rem,1.35vw,1.25rem);color:var(--ink-2);max-width:60ch;
+    margin:0 0 3rem;font-weight:400;line-height:1.5;
+  }
+  .hero-meta{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:1.5rem 2rem;
+    font-size:.8rem;color:var(--muted);
+    padding-top:1.75rem;position:relative;
+  }
+  .hero-meta::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:var(--acies-gradient);
+  }
+  .hero-meta .cell .k{
+    display:block;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:.35rem;font-weight:600;
+  }
+  .hero-meta .cell .v{color:var(--ink);font-weight:600;font-size:.95rem}
+
+  /* contents menu */
+  nav.toc{
+    max-width:var(--max);margin:0 auto 4rem;padding:0 var(--gutter);
+  }
+  nav.toc details{
+    border:1px solid var(--ink);background:var(--panel);position:relative;
+  }
+  nav.toc details::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:var(--acies-gradient);
+  }
+  nav.toc summary{
+    cursor:pointer;padding:1.1rem 1.5rem;
+    font-size:.72rem;letter-spacing:.18em;
+    font-weight:700;color:var(--ink);list-style:none;text-transform:uppercase;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  nav.toc summary::-webkit-details-marker{display:none}
+  nav.toc summary::after{
+    content:"[ + ]";font-size:.72rem;letter-spacing:.1em;color:var(--ink);font-weight:700;
+  }
+  nav.toc details[open] summary::after{content:"[ − ]"}
+  nav.toc ol{
+    list-style:none;margin:0;padding:1rem 1.5rem 1.5rem;counter-reset:toc;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.15rem 1.5rem;
+    font-size:.85rem;
+    border-top:1px solid var(--rule);
+  }
+  nav.toc li{counter-increment:toc;padding:.35rem 0;border-bottom:1px dotted var(--rule)}
+  nav.toc li::before{
+    content:counter(toc,decimal-leading-zero) "  ";color:var(--muted);
+    font-size:.7rem;font-weight:600;letter-spacing:.05em;margin-right:.5rem;
+  }
+  nav.toc a{text-decoration:none;color:var(--ink)}
+  nav.toc a:hover{text-decoration:underline;text-decoration-thickness:1.5px}
+
+  /* sections — collapsible */
+  main{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) 6rem}
+  details.block{
+    position:relative;border-top:1px solid var(--ink);
+  }
+  details.block:last-of-type{border-bottom:1px solid var(--ink)}
+  details.block::before{
+    content:"";position:absolute;top:0;left:0;width:96px;height:3px;
+    background:var(--acies-gradient);pointer-events:none;
+  }
+  details.block > summary{
+    list-style:none;cursor:pointer;
+    display:grid;grid-template-columns:6rem 1fr auto;gap:2rem;align-items:center;
+    padding:1.75rem 0;
+    transition:padding .25s ease;
+  }
+  details.block > summary::-webkit-details-marker{display:none}
+  details.block > summary:hover{padding-left:.5rem}
+  details.block > summary:hover .title{letter-spacing:-.005em}
+  details.block > summary .n{
+    font-size:.72rem;font-weight:700;letter-spacing:.14em;
+    background:var(--acies-gradient);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  details.block > summary .title{
+    font-size:clamp(1.35rem,2.2vw,1.9rem);font-weight:700;
+    letter-spacing:-.015em;line-height:1.15;color:var(--ink);
+    transition:letter-spacing .25s ease;
+  }
+  details.block > summary .toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:3rem;height:3rem;border:1px solid var(--ink);
+    font-size:.82rem;font-weight:700;letter-spacing:.08em;
+    background:#fff;color:var(--ink);
+    transition:background .2s ease,color .2s ease,transform .25s ease;
+    flex-shrink:0;
+  }
+  details.block > summary .toggle .read{
+    display:none;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  }
+  details.block > summary:hover .toggle{
+    background:var(--ink);color:#fff;
+  }
+  details.block[open] > summary .toggle{
+    background:var(--ink);color:#fff;
+  }
+  details.block[open] > summary .toggle .plus{display:none}
+  details.block[open] > summary .toggle .minus{display:inline}
+  details.block > summary .toggle .minus{display:none}
+  @media (max-width:700px){
+    details.block > summary{grid-template-columns:4rem 1fr auto;gap:1rem}
+    details.block > summary .toggle{width:2.5rem;height:2.5rem}
+    details.block > summary .title{font-size:1.1rem}
+  }
+
+  details.block .body{
+    max-width:62ch;padding:.5rem 0 3rem 6rem;
+  }
+  @media (max-width:700px){
+    details.block .body{padding-left:0;padding-bottom:2rem}
+  }
+  details.block .body p{margin:0 0 1.1rem}
+  details.block .body p:last-child{margin-bottom:0}
+  details.block .body h3{
+    font-size:clamp(1.25rem,1.8vw,1.6rem);margin:0 0 1.25rem;
+    font-weight:600;letter-spacing:-.015em;line-height:1.2;color:var(--ink-2);
+  }
+
+  /* body variant with leadership photos on the right */
+  details.block .body.with-people{
+    max-width:none;
+    display:grid;
+    grid-template-columns:minmax(0,62ch) minmax(0,340px);
+    gap:3rem;align-items:start;
+  }
+  details.block .body.with-people > .text{max-width:62ch}
+  .people{
+    display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;
+  }
+  .person{display:flex;flex-direction:column;gap:.75rem}
+  .person-photo{
+    aspect-ratio:3/4;
+    background:
+      linear-gradient(135deg,#fafafa 0%,#efefef 100%);
+    border:1px solid var(--rule);
+    position:relative;overflow:hidden;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease;
+  }
+  .person-photo::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:var(--acies-gradient);z-index:2;
+  }
+  .person-photo::after{
+    content:attr(data-initials);
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:2.75rem;font-weight:800;letter-spacing:-.02em;
+    background:var(--acies-gradient);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    opacity:.35;
+  }
+  .person-photo img{
+    position:relative;z-index:1;
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:grayscale(100%);transition:filter .35s ease;
+  }
+  .person:hover .person-photo{
+    transform:translateY(-4px);
+    box-shadow:0 18px 42px rgba(0,0,0,.14);
+    border-color:#d6d6d6;
+  }
+  .person:hover .person-photo img{filter:grayscale(0%)}
+  .person-name{font-size:.95rem;font-weight:700;letter-spacing:-.005em;color:var(--ink)}
+  .person-role{
+    font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  @media (max-width:900px){
+    details.block .body.with-people{grid-template-columns:1fr;gap:2rem}
+    .people{max-width:420px}
+  }
+
+  /* subtle open animation */
+  details.block[open] .body{
+    animation:dropdown .35s cubic-bezier(.2,.7,.2,1);
+  }
+  @keyframes dropdown{
+    from{opacity:0;transform:translateY(-6px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+
+  /* definition list for Impressum */
+  dl.impressum{
+    display:grid;grid-template-columns:14rem 1fr;gap:.75rem 1.5rem;
+    margin:0;padding:1.25rem 0 0;border-top:1px solid var(--rule);
+    font-size:.88rem;
+  }
+  @media (max-width:560px){
+    dl.impressum{grid-template-columns:1fr}
+    dl.impressum dt{padding-top:.5rem}
+  }
+  dl.impressum dt{
+    color:var(--muted);font-weight:500;font-size:.72rem;
+    letter-spacing:.1em;text-transform:uppercase;padding-top:.15rem;
+  }
+  dl.impressum dd{margin:0;color:var(--ink);font-weight:500}
+
+  ul.clean{padding:0;margin:0 0 1.25rem;list-style:none}
+  ul.clean li{
+    padding:.6rem 0;border-bottom:1px solid var(--rule);
+    font-size:.92rem;display:flex;align-items:center;
+  }
+  ul.clean li::before{
+    content:"§";margin-right:.75rem;font-weight:800;font-size:1.1rem;
+    background:var(--acies-gradient);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  ul.clean li:last-child{border-bottom:0}
+
+  .callout{
+    background:var(--ink);color:#fff;
+    padding:1.25rem 1.5rem 1.25rem calc(1.5rem + 4px);
+    font-size:.82rem;letter-spacing:.02em;
+    position:relative;
+  }
+  .callout::before{
+    content:"";position:absolute;top:0;bottom:0;left:0;width:4px;
+    background:var(--acies-gradient);
+  }
+  .callout b{
+    letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;display:block;margin-bottom:.35rem;font-weight:700;
+    background:var(--acies-gradient);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  /* section controls (expand/collapse all) */
+  .section-controls{
+    max-width:var(--max);margin:0 auto;padding:0 var(--gutter);
+    display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    border-top:1px solid var(--rule);padding-top:2rem;margin-bottom:1rem;
+  }
+  .section-controls .label{
+    font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+  }
+  .section-controls .label b{color:var(--ink);font-weight:700}
+  .section-controls .ctrls{display:flex;gap:.5rem}
+  .section-controls button{
+    appearance:none;background:#fff;border:1px solid var(--ink);cursor:pointer;
+    font-family:inherit;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:600;color:var(--ink);padding:.65rem 1rem;
+    transition:background .2s ease,color .2s ease;
+  }
+  .section-controls button:hover{background:var(--ink);color:#fff}
+
+  /* footer */
+  footer.site{
+    border-top:1px solid var(--ink);background:var(--ink);color:#fff;
+    margin-top:2rem;
+  }
+  footer.site .tagline{
+    max-width:var(--max);margin:0 auto;padding:4rem var(--gutter) 2rem;
+    font-size:clamp(1.75rem,4vw,3.25rem);font-weight:700;
+    letter-spacing:-.02em;line-height:1.05;
+  }
+  footer.site .tagline em{
+    font-style:normal;font-weight:700;
+    background:var(--acies-gradient);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  footer.site::before{
+    content:"";display:block;height:3px;background:var(--acies-gradient);
+  }
+  .footrow{
+    max-width:var(--max);margin:0 auto;padding:2rem var(--gutter) 3rem;
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;
+    font-size:.82rem;color:#aaa;
+    border-top:1px solid #333;
+  }
+  .footrow .col-label{
+    font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+    color:#888;font-weight:600;margin-bottom:.75rem;display:block;
+  }
+  .footrow a{color:#fff;text-decoration:none}
+  .footrow a:hover{text-decoration:underline;text-decoration-thickness:1.5px}
+  .footrow b{color:#fff;font-weight:600}
+  .footrow .cols{display:flex;flex-wrap:wrap;gap:3rem}
+  .footrow .meta{
+    width:100%;border-top:1px solid #333;padding-top:1.25rem;margin-top:.5rem;
+    color:#888;font-size:.75rem;
+  }
+
+  /* ACIES parent card (mirrors Subscribe footer card pattern) */
+  .footrow a.footer-acies,
+  .footrow a.footer-acies:hover{text-decoration:none}
+  .footer-acies,
+  .footer-acies *{text-decoration:none !important}
+  .footer-acies{
+    display:flex;flex-direction:row;align-items:center;gap:22px;
+    padding:24px 28px;
+    border:1px solid rgba(0,195,210,.28);
+    background:rgba(0,195,210,.04);
+    cursor:pointer;text-decoration:none;color:inherit;
+    transition:transform .4s cubic-bezier(.16,1,.3,1),
+               box-shadow .4s cubic-bezier(.16,1,.3,1),
+               border-color .4s ease,
+               background .4s ease;
+    transform-origin:center;
+    position:relative;overflow:hidden;
+  }
+  .footer-acies::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:var(--acies-gradient);opacity:.75;
+    transition:opacity .4s ease;
+  }
+  .footer-acies:hover{
+    transform:translateY(-6px) scale(1.03);
+    box-shadow:0 24px 60px rgba(0,0,0,.45), 0 0 0 1px rgba(0,195,210,.5);
+    border-color:rgba(0,195,210,.6);
+    background:rgba(0,195,210,.08);
+  }
+  .footer-acies:hover::before{opacity:1}
+  .footer-acies:hover .footer-acies-logo{
+    transform:scale(1.06) rotate(-1deg);
+  }
+  .footer-acies-logo{
+    width:120px;height:auto;flex-shrink:0;
+    transition:transform .4s cubic-bezier(.16,1,.3,1);
+  }
+  .footer-acies-text{
+    display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:6px;
+  }
+  .footer-acies-label{
+    font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(255,255,255,.5);
+  }
+  .footer-acies-link{
+    font-size:24px;font-weight:600;color:#fff;letter-spacing:3px;
+    text-transform:uppercase;line-height:1;
+  }
+  .footer-acies-sub{
+    font-size:13px;color:rgba(255,255,255,.95);
+    font-weight:600;letter-spacing:.3px;
+  }
+  .footer-acies-url{
+    margin-top:4px;font-size:11px;font-weight:700;letter-spacing:1px;
+    color:var(--acies-cyan);text-transform:uppercase;
+  }
+  @media (max-width:560px){
+    .footer-acies{flex-direction:column;text-align:center;align-items:center;gap:16px;padding:20px}
+    .footer-acies-text{align-items:center;text-align:center}
+    .footer-acies-logo{width:100px}
+  }
+
+  /* language switching */
+  [data-lang="en"] .de{display:none}
+  [data-lang="de"] .en{display:none}
+
+  /* print-friendly */
+  @media print{
+    header.site,nav.toc,.lang{display:none}
+    section.block{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#intro"><span class="en">Skip to content</span><span class="de">Zum Inhalt springen</span></a>
+
+<header class="site">
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="ACIES Europe GmbH">
+      <img class="logo" src="acies-mgu-logo-raw.svg" alt="ACIES MGU">
+      <span class="divider" aria-hidden="true"></span>
+      <span class="sub">
+        Europe GmbH
+        <small><span class="en">Regulatory information</span><span class="de">Regulatorische Angaben</span></small>
+      </span>
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="de" aria-pressed="false">DE</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <span class="hero-tag">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="en">Raising the bar · Europe</span>
+    <span class="de">Raising the bar · Europa</span>
+  </span>
+  <p class="eyebrow">
+    <span class="en">Regulatory information — Acies Europe GmbH</span>
+    <span class="de">Regulatorische Angaben — Acies Europe GmbH</span>
+  </p>
+  <h1>
+    <span class="en">European insurance intermediation, <em>regulated in Germany.</em></span>
+    <span class="de">Versicherungsvermittlung für Europa, <em>zugelassen in Deutschland.</em></span>
+  </h1>
+  <p class="lede">
+    <span class="en">Acies Europe GmbH is the European arm of the ACIES group. We operate from Hamburg as a fully-authorised insurance intermediary under §34d Abs. 1 GewO, supervised by the Handelskammer Hamburg.</span>
+    <span class="de">Die Acies Europe GmbH ist die europäische Einheit der ACIES-Gruppe. Wir operieren von Hamburg aus als zugelassener Versicherungsvermittler nach § 34d Abs. 1 GewO und werden von der Handelskammer Hamburg beaufsichtigt.</span>
+  </p>
+  <div class="hero-meta">
+    <div class="cell">
+      <span class="k"><span class="en">Register court</span><span class="de">Registergericht</span></span>
+      <span class="v">Hamburg HRB 184005</span>
+    </div>
+    <div class="cell">
+      <span class="k"><span class="en">VAT ID</span><span class="de">USt-IdNr.</span></span>
+      <span class="v">DE 366948406</span>
+    </div>
+    <div class="cell">
+      <span class="k">§34d GewO</span>
+      <span class="v">D-XVP1-R1NNR-84</span>
+    </div>
+    <div class="cell">
+      <span class="k"><span class="en">Registered office</span><span class="de">Sitz</span></span>
+      <span class="v">Hohe Bleichen 8, Hamburg</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-controls">
+  <div class="label">
+    <span class="en"><b>12 sections</b> · Click any to expand</span>
+    <span class="de"><b>12 Abschnitte</b> · Zum Aufklappen anklicken</span>
+  </div>
+  <div class="ctrls">
+    <button type="button" data-expand-all>
+      <span class="en">Expand all</span><span class="de">Alle öffnen</span>
+    </button>
+    <button type="button" data-collapse-all>
+      <span class="en">Collapse all</span><span class="de">Alle schließen</span>
+    </button>
+  </div>
+</div>
+
+<main>
+
+  <details class="block" id="intro">
+    <summary>
+      <span class="n">01 / 12</span>
+      <span class="title"><span class="en">About</span><span class="de">Über uns</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body with-people">
+      <div class="text">
+        <h3>
+          <span class="en">The European arm of the ACIES group.</span>
+          <span class="de">Die europäische Einheit der ACIES-Gruppe.</span>
+        </h3>
+        <p>
+          <span class="en">Acies Europe GmbH is a wholly-owned subsidiary of the ACIES group. Within Europe, ACIES' insurance intermediation services are offered through this entity, which holds the regulatory authorisations required to operate in the European Union.</span>
+          <span class="de">Die Acies Europe GmbH ist eine hundertprozentige Tochtergesellschaft der ACIES-Gruppe. Innerhalb Europas werden die Versicherungsvermittlungsdienstleistungen der ACIES-Gruppe über diese Gesellschaft erbracht, die über die für die Tätigkeit in der Europäischen Union erforderlichen aufsichtsrechtlichen Erlaubnisse verfügt.</span>
+        </p>
+        <p>
+          <span class="en">The business is operated from Hamburg and supervised by the Handelskammer Hamburg in its capacity as the competent authority under §34d GewO.</span>
+          <span class="de">Der Geschäftsbetrieb wird von Hamburg aus geführt und durch die Handelskammer Hamburg als zuständige Aufsichtsbehörde gemäß § 34d GewO beaufsichtigt.</span>
+        </p>
+      </div>
+      <div class="people" aria-label="Managing Directors">
+        <figure class="person">
+          <div class="person-photo" data-initials="MH">
+            <!-- drop <img src="mark-heath.jpg" alt="Mark Heath"> inside to replace placeholder -->
+          </div>
+          <figcaption>
+            <span class="person-name">Mark Heath</span><br>
+            <span class="person-role"><span class="en">Managing Director</span><span class="de">Geschäftsführer</span></span>
+          </figcaption>
+        </figure>
+        <figure class="person">
+          <div class="person-photo" data-initials="NS">
+            <!-- drop <img src="nikolaus-suhr.jpg" alt="Nikolaus Sühr"> inside to replace placeholder -->
+          </div>
+          <figcaption>
+            <span class="person-name">Nikolaus Sühr</span><br>
+            <span class="person-role"><span class="en">Managing Director</span><span class="de">Geschäftsführer</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </details>
+
+  <details class="block" id="phoenix">
+    <summary>
+      <span class="n">02 / 12</span>
+      <span class="title"><span class="en">Trading name</span><span class="de">Handelsname</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en"><b>Phoenix Europe</b> is a trading name of Acies Europe GmbH. Business conducted under the Phoenix Europe name is conducted by, and on behalf of, Acies Europe GmbH under the same German regulatory authorisation.</span>
+        <span class="de"><b>Phoenix Europe</b> ist ein Handelsname der Acies Europe GmbH. Die unter der Bezeichnung Phoenix Europe geführten Geschäfte werden durch die Acies Europe GmbH und in deren Namen auf Grundlage derselben deutschen aufsichtsrechtlichen Erlaubnis erbracht.</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="block" id="impressum">
+    <summary>
+      <span class="n">03 / 12</span>
+      <span class="title"><span class="en">Legal notice</span><span class="de">Impressum</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p style="font-family:'Inter',system-ui,sans-serif;font-size:.85rem;color:var(--muted);margin-bottom:1.25rem">
+        <span class="en">Information pursuant to §5 TMG</span>
+        <span class="de">Angaben gemäß § 5 TMG</span>
+      </p>
+      <dl class="impressum">
+        <dt><span class="en">Company</span><span class="de">Gesellschaft</span></dt>
+        <dd>Acies Europe GmbH</dd>
+
+        <dt><span class="en">Registered office</span><span class="de">Sitz</span></dt>
+        <dd>Hohe Bleichen 8<br>20354 Hamburg<br>Deutschland</dd>
+
+        <dt><span class="en">Email</span><span class="de">E-Mail</span></dt>
+        <dd><a href="mailto:info@aciesmgu.com">info@aciesmgu.com</a></dd>
+
+        <dt><span class="en">Register court</span><span class="de">Registergericht</span></dt>
+        <dd>
+          <span class="en">Hamburg District Court, HRB 184005</span>
+          <span class="de">Amtsgericht Hamburg, HRB 184005</span>
+        </dd>
+
+        <dt><span class="en">VAT ID</span><span class="de">Umsatzsteuer-ID</span></dt>
+        <dd>DE 366948406</dd>
+
+        <dt><span class="en">Managing Directors</span><span class="de">Geschäftsführer</span></dt>
+        <dd>Mark Heath, Nikolaus Sühr</dd>
+
+        <dt>
+          <span class="en">Responsible for content</span>
+          <span class="de">Inhaltlich verantwortlich</span>
+        </dt>
+        <dd>
+          <span class="en">Mark Heath (§18 Abs. 2 MStV)</span>
+          <span class="de">Mark Heath (§ 18 Abs. 2 MStV)</span>
+        </dd>
+      </dl>
+    </div>
+  </details>
+
+  <details class="block" id="regulatory">
+    <summary>
+      <span class="n">04 / 12</span>
+      <span class="title"><span class="en">Regulatory status</span><span class="de">Aufsichtsrechtliche Angaben</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">Acies Europe GmbH is a Registered Intermediary — an insurance agent authorised under §34d Abs. 1 of the German Trade Regulation (Gewerbeordnung, GewO).</span>
+        <span class="de">Die Acies Europe GmbH ist ein eingetragener Versicherungsvertreter mit Erlaubnis nach § 34d Abs. 1 der Gewerbeordnung (GewO).</span>
+      </p>
+      <dl class="impressum">
+        <dt><span class="en">Registration number</span><span class="de">Registrierungsnummer</span></dt>
+        <dd>D-XVP1-R1NNR-84</dd>
+        <dt><span class="en">Supervisory authority</span><span class="de">Zuständige Aufsichtsbehörde</span></dt>
+        <dd>Handelskammer Hamburg<br>Adolphsplatz 1<br>20457 Hamburg</dd>
+      </dl>
+    </div>
+  </details>
+
+  <details class="block" id="remuneration">
+    <summary>
+      <span class="n">05 / 12</span>
+      <span class="title"><span class="en">Remuneration</span><span class="de">Vergütung</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">Acies Europe GmbH is remunerated by a commission received from the carrier, which is an integral part of the premium. In some circumstances, Acies Europe GmbH will also receive a fee from the intermediary who introduces the business. It is also possible that Acies Europe GmbH will receive additional remuneration for certain aspects of its business.</span>
+        <span class="de">Die Acies Europe GmbH erhält ihre Vergütung in Form einer Courtage des Versicherers, die Bestandteil der Versicherungsprämie ist. In bestimmten Fällen erhält die Acies Europe GmbH zusätzlich eine Vergütung des einführenden Vermittlers. Darüber hinaus ist es möglich, dass die Acies Europe GmbH für bestimmte Aspekte ihrer Tätigkeit eine weitergehende Vergütung erhält.</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="block" id="register">
+    <summary>
+      <span class="n">06 / 12</span>
+      <span class="title"><span class="en">Public register</span><span class="de">Vermittlerregister</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">Our registration may be inspected at the joint register office within the meaning of §15 Abs. 1 Nr. 9 VersVermV:</span>
+        <span class="de">Unsere Registrierung kann bei der gemeinsamen Registerstelle im Sinne des § 15 Abs. 1 Nr. 9 VersVermV eingesehen werden:</span>
+      </p>
+      <dl class="impressum">
+        <dt><span class="en">Body</span><span class="de">Stelle</span></dt>
+        <dd>Deutscher Industrie- und Handelskammertag (DIHK) e.V.<br>Breite Straße 29, 10178 Berlin</dd>
+
+        <dt><span class="en">Telephone</span><span class="de">Telefon</span></dt>
+        <dd>0180 600 58 50 <span style="color:var(--muted)">(0,20 €/Anruf)</span></dd>
+
+        <dt><span class="en">Public register</span><span class="de">Öffentliches Register</span></dt>
+        <dd><a href="https://www.vermittlerregister.info" target="_blank" rel="noopener">www.vermittlerregister.info</a></dd>
+      </dl>
+    </div>
+  </details>
+
+  <details class="block" id="laws">
+    <summary>
+      <span class="n">07 / 12</span>
+      <span class="title"><span class="en">Commercial law framework</span><span class="de">Gewerberechtliche Vorschriften</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">Commercial law regulations in respect of our insurance intermediation activities:</span>
+        <span class="de">Für unsere Versicherungsvermittlungstätigkeit gelten insbesondere die folgenden gewerberechtlichen Vorschriften:</span>
+      </p>
+      <ul class="clean">
+        <li>§ 34d Gewerbeordnung (GewO)</li>
+        <li>§§ 59–68 Versicherungsvertragsgesetz (VVG)</li>
+        <li>Versicherungsvermittlerverordnung (VersVermV)</li>
+      </ul>
+      <p>
+        <span class="en">These regulations can be viewed and accessed on the portal operated by the Federal Ministry of Justice and juris GmbH at <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener">www.gesetze-im-internet.de</a>.</span>
+        <span class="de">Diese Vorschriften können auf dem vom Bundesministerium der Justiz und der juris GmbH betriebenen Portal unter <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener">www.gesetze-im-internet.de</a> eingesehen werden.</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="block" id="dispute">
+    <summary>
+      <span class="n">08 / 12</span>
+      <span class="title"><span class="en">Dispute settlement</span><span class="de">Streitbeilegung</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">Pursuant to §17 Abs. 4 VersVermV, we are obliged to participate in dispute settlement proceedings before the following consumer arbitration bodies:</span>
+        <span class="de">Gemäß § 17 Abs. 4 VersVermV sind wir verpflichtet, an Streitbeilegungsverfahren vor den folgenden Verbraucherschlichtungsstellen teilzunehmen:</span>
+      </p>
+      <dl class="impressum">
+        <dt><span class="en">Insurance Ombudsman</span><span class="de">Versicherungsombudsmann</span></dt>
+        <dd>Versicherungsombudsmann e.V.<br>Postfach 08 06 32, 10006 Berlin<br><a href="https://www.versicherungsombudsmann.de" target="_blank" rel="noopener">www.versicherungsombudsmann.de</a></dd>
+
+        <dt><span class="en">Private health &amp; long-term care</span><span class="de">Private Kranken- und Pflegeversicherung</span></dt>
+        <dd>Ombudsmann Private Kranken- und Pflegeversicherung<br>Postfach 06 02 22, 10052 Berlin<br><a href="https://www.pkv-ombudsmann.de" target="_blank" rel="noopener">www.pkv-ombudsmann.de</a></dd>
+      </dl>
+      <p style="margin-top:1rem">
+        <span class="en"><b>Online dispute resolution (Art. 14 Abs. 1 ODR-VO).</b> The European Commission provides a platform for online dispute resolution at <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</span>
+        <span class="de"><b>Online-Streitbeilegung (Art. 14 Abs. 1 ODR-VO).</b> Die Europäische Kommission stellt unter <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a> eine Plattform zur Online-Streitbeilegung bereit.</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="block" id="liability">
+    <summary>
+      <span class="n">09 / 12</span>
+      <span class="title"><span class="en">Liability for links</span><span class="de">Haftung für Links</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content.</span>
+        <span class="de">Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="block" id="disclaimer">
+    <summary>
+      <span class="n">10 / 12</span>
+      <span class="title"><span class="en">Disclaimer</span><span class="de">Haftungsausschluss</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">The content of this website is for general informational purposes only. Acies Europe GmbH assumes no liability for material or immaterial damage caused by errors or omissions regarding the topicality, correctness, or completeness of this website, despite careful examination of the information. Otherwise, liability is limited to willful intent and gross negligence.</span>
+        <span class="de">Die Inhalte dieser Website dienen ausschließlich allgemeinen Informationszwecken. Die Acies Europe GmbH übernimmt trotz sorgfältiger Prüfung der Angaben keine Haftung für materielle oder immaterielle Schäden aufgrund von Fehlern oder Lücken hinsichtlich der Aktualität, Richtigkeit oder Vollständigkeit dieser Website. Im Übrigen ist die Haftung auf Vorsatz und grobe Fahrlässigkeit beschränkt.</span>
+      </p>
+      <p>
+        <span class="en">Acies Europe GmbH expressly reserves the right to change, add to or delete individual pages or parts thereof without prior notice, or to temporarily or completely discontinue publication. Where this website is linked from another website, Acies Europe GmbH assumes no responsibility for representations, content or any connection to Acies Europe GmbH on third-party websites.</span>
+        <span class="de">Die Acies Europe GmbH behält sich ausdrücklich vor, einzelne Seiten oder Teile hiervon ohne vorherige Ankündigung zu ändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen. Bei Verlinkung dieser Website von einer anderen Website übernimmt die Acies Europe GmbH keine Verantwortung für Darstellungen, Inhalte oder eine etwaige Verbindung zur Acies Europe GmbH auf Websites Dritter.</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="block" id="copyright">
+    <summary>
+      <span class="n">11 / 12</span>
+      <span class="title"><span class="en">Copyright</span><span class="de">Urheberrecht</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <p>
+        <span class="en">The contents and works on this site created by the site operator are subject to copyright law. Duplication, editing, distribution and any other use outside what is permitted under copyright law requires the written consent of the particular author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as content on this site was not created by the operator, the copyrights of third parties are observed. Should you become aware of a copyright infringement, please notify us and we will remove the content immediately.</span>
+        <span class="de">Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht-kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</span>
+      </p>
+    </div>
+  </details>
+
+  <details class="block" id="privacy">
+    <summary>
+      <span class="n">12 / 12</span>
+      <span class="title"><span class="en">Privacy policy</span><span class="de">Datenschutzerklärung</span></span>
+      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
+    </summary>
+    <div class="body">
+      <div class="callout">
+        <span class="en"><b>Draft placeholder.</b> This section will contain a full GDPR + BDSG-neu privacy notice. Final text pending client review.</span>
+        <span class="de"><b>Entwurfsplatzhalter.</b> Dieser Abschnitt enthält die vollständige Datenschutzerklärung nach DSGVO und BDSG-neu. Der endgültige Text steht zur Abstimmung mit dem Mandanten noch aus.</span>
+      </div>
+
+      <h3 style="margin-top:1.5rem"><span class="en">1. Controller</span><span class="de">1. Verantwortlicher</span></h3>
+      <p>
+        <span class="en">The controller responsible for the processing of personal data on this website is Acies Europe GmbH, Hohe Bleichen 8, 20354 Hamburg, Germany. You can reach us by email at <a href="mailto:info@aciesmgu.com">info@aciesmgu.com</a>.</span>
+        <span class="de">Verantwortlicher für die Verarbeitung personenbezogener Daten auf dieser Website ist die Acies Europe GmbH, Hohe Bleichen 8, 20354 Hamburg. Sie erreichen uns per E-Mail unter <a href="mailto:info@aciesmgu.com">info@aciesmgu.com</a>.</span>
+      </p>
+
+      <h3><span class="en">2. Scope of this notice</span><span class="de">2. Geltungsbereich</span></h3>
+      <p>
+        <span class="en">This notice covers personal data processed in connection with your visit to this website. Separate notices apply to data processed in the course of our insurance intermediation activities and will be provided to you at the point of that processing.</span>
+        <span class="de">Diese Erklärung gilt für personenbezogene Daten, die im Zusammenhang mit Ihrem Besuch dieser Website verarbeitet werden. Für Daten, die im Rahmen unserer Versicherungsvermittlungstätigkeit verarbeitet werden, gelten gesonderte Hinweise, die Ihnen zum Zeitpunkt der jeweiligen Verarbeitung zur Verfügung gestellt werden.</span>
+      </p>
+
+      <h3><span class="en">3. Cookies and tracking</span><span class="de">3. Cookies und Tracking</span></h3>
+      <p>
+        <span class="en">This website uses no cookies and no analytics or tracking technologies. No personal data is collected about you when you simply browse this page.</span>
+        <span class="de">Diese Website verwendet keine Cookies und keine Analyse- oder Tracking-Technologien. Beim bloßen Aufruf dieser Seite werden keine personenbezogenen Daten über Sie erhoben.</span>
+      </p>
+
+      <h3><span class="en">4. Server logs</span><span class="de">4. Server-Logfiles</span></h3>
+      <p>
+        <span class="en">Our hosting provider automatically collects and stores information in server log files that your browser transmits to us (IP address, date and time of request, referrer, user agent). The legal basis is our legitimate interest in the secure operation of this website under Art. 6(1)(f) GDPR. Log data is retained for the period strictly necessary for this purpose and is not combined with other data sources.</span>
+        <span class="de">Unser Hosting-Anbieter erhebt und speichert automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser an uns übermittelt (IP-Adresse, Datum und Uhrzeit der Anfrage, Referrer, User-Agent). Rechtsgrundlage ist unser berechtigtes Interesse am sicheren Betrieb dieser Website gemäß Art. 6 Abs. 1 lit. f DSGVO. Die Logdaten werden nur so lange gespeichert, wie dies für diesen Zweck erforderlich ist, und werden nicht mit anderen Datenquellen zusammengeführt.</span>
+      </p>
+
+      <h3><span class="en">5. Contact by email</span><span class="de">5. Kontaktaufnahme per E-Mail</span></h3>
+      <p>
+        <span class="en">If you contact us by email, the information you send will be stored for the purpose of processing your enquiry and for follow-up questions. The legal basis is Art. 6(1)(b) or (f) GDPR.</span>
+        <span class="de">Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Angaben zum Zweck der Bearbeitung Ihrer Anfrage und für etwaige Anschlussfragen gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO.</span>
+      </p>
+
+      <h3><span class="en">6. Your rights</span><span class="de">6. Ihre Rechte</span></h3>
+      <p>
+        <span class="en">You have the right to access, rectification, erasure, restriction, data portability and objection under Art. 15–21 GDPR. You also have the right to lodge a complaint with a supervisory authority — for Acies Europe GmbH, the competent authority is the Hamburg Commissioner for Data Protection and Freedom of Information (Der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit, HmbBfDI).</span>
+        <span class="de">Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gemäß Art. 15–21 DSGVO. Sie haben zudem das Recht, sich bei einer Aufsichtsbehörde zu beschweren — für die Acies Europe GmbH ist dies der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit (HmbBfDI).</span>
+      </p>
+    </div>
+  </details>
+
+</main>
+
+<footer class="site">
+  <div class="tagline">
+    <span class="en">Partnering to build <em>great businesses.</em></span>
+    <span class="de">Partnerschaften für <em>starke Unternehmen.</em></span>
+  </div>
+  <div class="footrow">
+    <div>
+      <span class="col-label"><span class="en">Registered office</span><span class="de">Geschäftssitz</span></span>
+      <div><b>Acies Europe GmbH</b></div>
+      <div>Hohe Bleichen 8 · 20354 Hamburg</div>
+      <div><a href="mailto:info@aciesmgu.com">info@aciesmgu.com</a></div>
+    </div>
+    <div>
+      <span class="col-label"><span class="en">Jump to</span><span class="de">Springen zu</span></span>
+      <div><a href="#impressum"><span class="en">Legal notice</span><span class="de">Impressum</span></a></div>
+      <div><a href="#regulatory"><span class="en">Regulatory status</span><span class="de">Aufsichtsrechtliche Angaben</span></a></div>
+      <div><a href="#privacy"><span class="en">Privacy policy</span><span class="de">Datenschutzerklärung</span></a></div>
+    </div>
+
+    <a href="https://www.aciesmgu.com/" target="_blank" rel="noopener" class="footer-acies" aria-label="Visit ACIES MGU main website">
+      <img src="acies-mgu-logo-raw.svg" alt="ACIES MGU" class="footer-acies-logo">
+      <div class="footer-acies-text">
+        <span class="footer-acies-label"><span class="en">Part of</span><span class="de">Teil von</span></span>
+        <span class="footer-acies-link">ACIES MGU</span>
+        <span class="footer-acies-sub"><span class="en">An Acies Management Holdings Ltd business</span><span class="de">Ein Unternehmen der Acies Management Holdings Ltd</span></span>
+        <span class="footer-acies-url">AciesMGU.com &rarr;</span>
+      </div>
+    </a>
+    <div class="meta">
+      <span class="en">© <span id="yr"></span> Acies Europe GmbH. All rights reserved. Last updated 13 April 2026.</span>
+      <span class="de">© 2026 Acies Europe GmbH. Alle Rechte vorbehalten. Zuletzt aktualisiert am 13. April 2026.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var html=document.documentElement;
+    var btns=document.querySelectorAll('[data-set-lang]');
+    function setLang(l){
+      html.setAttribute('data-lang',l);
+      html.setAttribute('lang',l);
+      btns.forEach(function(b){
+        b.setAttribute('aria-pressed', b.dataset.setLang===l ? 'true':'false');
+      });
+      try{localStorage.setItem('acies-europe-lang',l);}catch(e){}
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click',function(){setLang(b.dataset.setLang);});
+    });
+    try{
+      var saved=localStorage.getItem('acies-europe-lang');
+      if(saved==='de'||saved==='en') setLang(saved);
+      else if((navigator.language||'').toLowerCase().indexOf('de')===0) setLang('de');
+    }catch(e){}
+    var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+    try{localStorage.removeItem('acies-europe-theme');}catch(e){}
+
+    // auto-open a <details class="block"> when targeted by hash
+    function openByHash(){
+      var h=location.hash.replace('#','');
+      if(!h) return;
+      var el=document.getElementById(h);
+      if(el && el.tagName==='DETAILS'){
+        el.open=true;
+        // small timeout so the browser can reflow before scroll
+        setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'});},40);
+      }
+    }
+    window.addEventListener('hashchange',openByHash);
+    // also open on direct click of any in-page anchor that points to a details block
+    document.addEventListener('click',function(e){
+      var a=e.target.closest && e.target.closest('a[href^="#"]');
+      if(!a) return;
+      var id=a.getAttribute('href').slice(1);
+      if(!id) return;
+      var el=document.getElementById(id);
+      if(el && el.tagName==='DETAILS') el.open=true;
+    });
+    openByHash();
+
+    // Expand all / Collapse all (if the buttons exist)
+    var allBlocks=function(){return document.querySelectorAll('details.block');};
+    var expandBtn=document.querySelector('[data-expand-all]');
+    var collapseBtn=document.querySelector('[data-collapse-all]');
+    if(expandBtn) expandBtn.addEventListener('click',function(){allBlocks().forEach(function(d){d.open=true;});});
+    if(collapseBtn) collapseBtn.addEventListener('click',function(){allBlocks().forEach(function(d){d.open=false;});});
+  })();
+</script>
+</body>
+</html>
