@@ -486,22 +486,24 @@
     transition:transform .4s cubic-bezier(.16,1,.3,1);
   }
   .footer-acies-text{
-    display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:6px;
+    display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:4px;
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-style:normal;
   }
   .footer-acies-label{
-    font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-    color:rgba(255,255,255,.5);
+    font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+    color:rgba(255,255,255,.55);
   }
-  .footer-acies-link{
-    font-size:24px;font-weight:600;color:#fff;letter-spacing:3px;
-    text-transform:uppercase;line-height:1;
+  .footer-acies-title{
+    font-size:22px;font-weight:700;letter-spacing:.5px;color:#fff;line-height:1.1;margin-top:2px;
+    font-style:normal;
   }
   .footer-acies-sub{
-    font-size:13px;color:rgba(255,255,255,.95);
-    font-weight:600;letter-spacing:.3px;
+    font-size:12.5px;font-weight:400;color:rgba(255,255,255,.8);line-height:1.3;margin-top:2px;
+    font-style:normal;
   }
   .footer-acies-url{
-    margin-top:4px;font-size:11px;font-weight:700;letter-spacing:1px;
+    margin-top:6px;font-size:11px;font-weight:700;letter-spacing:2px;
     color:var(--acies-cyan);text-transform:uppercase;
   }
   @media (max-width:560px){
@@ -557,8 +559,8 @@
     <span class="de">Versicherungsvermittlung für Europa, <em>zugelassen in Deutschland.</em></span>
   </h1>
   <p class="lede">
-    <span class="en">Acies Europe GmbH is the European arm of the ACIES group. We operate from Hamburg as a fully-authorised insurance intermediary under §34d Abs. 1 GewO, supervised by the Handelskammer Hamburg.</span>
-    <span class="de">Die Acies Europe GmbH ist die europäische Einheit der ACIES-Gruppe. Wir operieren von Hamburg aus als zugelassener Versicherungsvermittler nach § 34d Abs. 1 GewO und werden von der Handelskammer Hamburg beaufsichtigt.</span>
+    <span class="en">Acies Europe GmbH is the European arm of the ACIES group, and a wholly-owned subsidiary of Acies Management Holdings Ltd (AMHL). We operate from Hamburg as a fully-authorised insurance intermediary under §34d Abs. 1 GewO, supervised by the Handelskammer Hamburg.</span>
+    <span class="de">Die Acies Europe GmbH ist die europäische Einheit der ACIES-Gruppe und eine hundertprozentige Tochtergesellschaft der Acies Management Holdings Ltd (AMHL). Wir operieren von Hamburg aus als zugelassener Versicherungsvermittler nach § 34d Abs. 1 GewO und werden von der Handelskammer Hamburg beaufsichtigt.</span>
   </p>
   <div class="hero-meta">
     <div class="cell">
@@ -582,8 +584,8 @@
 
 <div class="section-controls">
   <div class="label">
-    <span class="en"><b>12 sections</b> · Click any to expand</span>
-    <span class="de"><b>12 Abschnitte</b> · Zum Aufklappen anklicken</span>
+    <span class="en"><b>9 sections</b> · Click any to expand</span>
+    <span class="de"><b>9 Abschnitte</b> · Zum Aufklappen anklicken</span>
   </div>
   <div class="ctrls">
     <button type="button" data-expand-all>
@@ -599,7 +601,7 @@
 
   <details class="block" id="intro">
     <summary>
-      <span class="n">01 / 12</span>
+      <span class="n">01 / 09</span>
       <span class="title"><span class="en">About</span><span class="de">Über uns</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -610,8 +612,8 @@
           <span class="de">Die europäische Einheit der ACIES-Gruppe.</span>
         </h3>
         <p>
-          <span class="en">Acies Europe GmbH is a wholly-owned subsidiary of the ACIES group. Within Europe, ACIES' insurance intermediation services are offered through this entity, which holds the regulatory authorisations required to operate in the European Union.</span>
-          <span class="de">Die Acies Europe GmbH ist eine hundertprozentige Tochtergesellschaft der ACIES-Gruppe. Innerhalb Europas werden die Versicherungsvermittlungsdienstleistungen der ACIES-Gruppe über diese Gesellschaft erbracht, die über die für die Tätigkeit in der Europäischen Union erforderlichen aufsichtsrechtlichen Erlaubnisse verfügt.</span>
+          <span class="en">Acies Europe GmbH is a wholly-owned subsidiary of Acies Management Holdings Ltd (AMHL), the parent of the ACIES group. Within Europe, ACIES' insurance intermediation services are offered through this entity, which holds the regulatory authorisations required to operate in the European Union.</span>
+          <span class="de">Die Acies Europe GmbH ist eine hundertprozentige Tochtergesellschaft der Acies Management Holdings Ltd (AMHL), der Muttergesellschaft der ACIES-Gruppe. Innerhalb Europas werden die Versicherungsvermittlungsdienstleistungen der ACIES-Gruppe über diese Gesellschaft erbracht, die über die für die Tätigkeit in der Europäischen Union erforderlichen aufsichtsrechtlichen Erlaubnisse verfügt.</span>
         </p>
         <p>
           <span class="en">The business is operated from Hamburg and supervised by the Handelskammer Hamburg in its capacity as the competent authority under §34d GewO.</span>
@@ -637,27 +639,31 @@
             <span class="person-role"><span class="en">Managing Director</span><span class="de">Geschäftsführer</span></span>
           </figcaption>
         </figure>
+        <figure class="person">
+          <div class="person-photo" data-initials="NW">
+            <!-- drop <img src="nick-wright.jpg" alt="Nick Wright"> inside to replace placeholder -->
+          </div>
+          <figcaption>
+            <span class="person-name">Nick Wright</span><br>
+            <span class="person-role"><span class="en">Director</span><span class="de">Direktor</span></span>
+          </figcaption>
+        </figure>
+        <figure class="person">
+          <div class="person-photo" data-initials="JR">
+            <!-- drop <img src="jaco-rabie.jpg" alt="Jaco Rabie"> inside to replace placeholder -->
+          </div>
+          <figcaption>
+            <span class="person-name">Jaco Rabie</span><br>
+            <span class="person-role"><span class="en">Director</span><span class="de">Direktor</span></span>
+          </figcaption>
+        </figure>
       </div>
-    </div>
-  </details>
-
-  <details class="block" id="phoenix">
-    <summary>
-      <span class="n">02 / 12</span>
-      <span class="title"><span class="en">Trading name</span><span class="de">Handelsname</span></span>
-      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
-    </summary>
-    <div class="body">
-      <p>
-        <span class="en"><b>Phoenix Europe</b> is a trading name of Acies Europe GmbH. Business conducted under the Phoenix Europe name is conducted by, and on behalf of, Acies Europe GmbH under the same German regulatory authorisation.</span>
-        <span class="de"><b>Phoenix Europe</b> ist ein Handelsname der Acies Europe GmbH. Die unter der Bezeichnung Phoenix Europe geführten Geschäfte werden durch die Acies Europe GmbH und in deren Namen auf Grundlage derselben deutschen aufsichtsrechtlichen Erlaubnis erbracht.</span>
-      </p>
     </div>
   </details>
 
   <details class="block" id="impressum">
     <summary>
-      <span class="n">03 / 12</span>
+      <span class="n">02 / 09</span>
       <span class="title"><span class="en">Legal notice</span><span class="de">Impressum</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -688,21 +694,15 @@
         <dt><span class="en">Managing Directors</span><span class="de">Geschäftsführer</span></dt>
         <dd>Mark Heath, Nikolaus Sühr</dd>
 
-        <dt>
-          <span class="en">Responsible for content</span>
-          <span class="de">Inhaltlich verantwortlich</span>
-        </dt>
-        <dd>
-          <span class="en">Mark Heath (§18 Abs. 2 MStV)</span>
-          <span class="de">Mark Heath (§ 18 Abs. 2 MStV)</span>
-        </dd>
+        <dt><span class="en">Directors</span><span class="de">Direktoren</span></dt>
+        <dd>Nick Wright, Jaco Rabie</dd>
       </dl>
     </div>
   </details>
 
   <details class="block" id="regulatory">
     <summary>
-      <span class="n">04 / 12</span>
+      <span class="n">03 / 09</span>
       <span class="title"><span class="en">Regulatory status</span><span class="de">Aufsichtsrechtliche Angaben</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -717,12 +717,27 @@
         <dt><span class="en">Supervisory authority</span><span class="de">Zuständige Aufsichtsbehörde</span></dt>
         <dd>Handelskammer Hamburg<br>Adolphsplatz 1<br>20457 Hamburg</dd>
       </dl>
+
+      <h3 style="margin-top:1.75rem"><span class="en">Commercial law framework</span><span class="de">Gewerberechtliche Vorschriften</span></h3>
+      <p>
+        <span class="en">Commercial law regulations in respect of our insurance intermediation activities:</span>
+        <span class="de">Für unsere Versicherungsvermittlungstätigkeit gelten insbesondere die folgenden gewerberechtlichen Vorschriften:</span>
+      </p>
+      <ul class="clean">
+        <li>§ 34d Gewerbeordnung (GewO)</li>
+        <li>§§ 59–68 Versicherungsvertragsgesetz (VVG)</li>
+        <li>Versicherungsvermittlerverordnung (VersVermV)</li>
+      </ul>
+      <p>
+        <span class="en">These regulations can be viewed and accessed on the portal operated by the Federal Ministry of Justice and juris GmbH at <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener">www.gesetze-im-internet.de</a>.</span>
+        <span class="de">Diese Vorschriften können auf dem vom Bundesministerium der Justiz und der juris GmbH betriebenen Portal unter <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener">www.gesetze-im-internet.de</a> eingesehen werden.</span>
+      </p>
     </div>
   </details>
 
   <details class="block" id="remuneration">
     <summary>
-      <span class="n">05 / 12</span>
+      <span class="n">04 / 09</span>
       <span class="title"><span class="en">Remuneration</span><span class="de">Vergütung</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -736,7 +751,7 @@
 
   <details class="block" id="register">
     <summary>
-      <span class="n">06 / 12</span>
+      <span class="n">05 / 09</span>
       <span class="title"><span class="en">Public register</span><span class="de">Vermittlerregister</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -758,33 +773,10 @@
     </div>
   </details>
 
-  <details class="block" id="laws">
-    <summary>
-      <span class="n">07 / 12</span>
-      <span class="title"><span class="en">Commercial law framework</span><span class="de">Gewerberechtliche Vorschriften</span></span>
-      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
-    </summary>
-    <div class="body">
-      <p>
-        <span class="en">Commercial law regulations in respect of our insurance intermediation activities:</span>
-        <span class="de">Für unsere Versicherungsvermittlungstätigkeit gelten insbesondere die folgenden gewerberechtlichen Vorschriften:</span>
-      </p>
-      <ul class="clean">
-        <li>§ 34d Gewerbeordnung (GewO)</li>
-        <li>§§ 59–68 Versicherungsvertragsgesetz (VVG)</li>
-        <li>Versicherungsvermittlerverordnung (VersVermV)</li>
-      </ul>
-      <p>
-        <span class="en">These regulations can be viewed and accessed on the portal operated by the Federal Ministry of Justice and juris GmbH at <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener">www.gesetze-im-internet.de</a>.</span>
-        <span class="de">Diese Vorschriften können auf dem vom Bundesministerium der Justiz und der juris GmbH betriebenen Portal unter <a href="https://www.gesetze-im-internet.de" target="_blank" rel="noopener">www.gesetze-im-internet.de</a> eingesehen werden.</span>
-      </p>
-    </div>
-  </details>
-
   <details class="block" id="dispute">
     <summary>
-      <span class="n">08 / 12</span>
-      <span class="title"><span class="en">Dispute settlement</span><span class="de">Streitbeilegung</span></span>
+      <span class="n">06 / 09</span>
+      <span class="title"><span class="en">Complaints</span><span class="de">Beschwerden</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
     <div class="body">
@@ -806,23 +798,9 @@
     </div>
   </details>
 
-  <details class="block" id="liability">
-    <summary>
-      <span class="n">09 / 12</span>
-      <span class="title"><span class="en">Liability for links</span><span class="de">Haftung für Links</span></span>
-      <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
-    </summary>
-    <div class="body">
-      <p>
-        <span class="en">Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content.</span>
-        <span class="de">Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</span>
-      </p>
-    </div>
-  </details>
-
   <details class="block" id="disclaimer">
     <summary>
-      <span class="n">10 / 12</span>
+      <span class="n">07 / 09</span>
       <span class="title"><span class="en">Disclaimer</span><span class="de">Haftungsausschluss</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -840,7 +818,7 @@
 
   <details class="block" id="copyright">
     <summary>
-      <span class="n">11 / 12</span>
+      <span class="n">08 / 09</span>
       <span class="title"><span class="en">Copyright</span><span class="de">Urheberrecht</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -854,7 +832,7 @@
 
   <details class="block" id="privacy">
     <summary>
-      <span class="n">12 / 12</span>
+      <span class="n">09 / 09</span>
       <span class="title"><span class="en">Privacy policy</span><span class="de">Datenschutzerklärung</span></span>
       <span class="toggle" aria-hidden="true"><span class="plus">+</span><span class="minus">−</span></span>
     </summary>
@@ -924,11 +902,11 @@
     </div>
 
     <a href="https://www.aciesmgu.com/" target="_blank" rel="noopener" class="footer-acies" aria-label="Visit ACIES MGU main website">
-      <img src="acies-mgu-logo-raw.svg" alt="ACIES MGU" class="footer-acies-logo">
+      <img src="acies-mgu-logo-white-text.svg" alt="ACIES MGU" class="footer-acies-logo">
       <div class="footer-acies-text">
-        <span class="footer-acies-label"><span class="en">Part of</span><span class="de">Teil von</span></span>
-        <span class="footer-acies-link">ACIES MGU</span>
-        <span class="footer-acies-sub"><span class="en">An Acies Management Holdings Ltd business</span><span class="de">Ein Unternehmen der Acies Management Holdings Ltd</span></span>
+        <span class="footer-acies-label"><span class="en">An</span><span class="de">Ein</span></span>
+        <span class="footer-acies-title">ACIES MGU</span>
+        <span class="footer-acies-sub"><span class="en">An Acies Management Holdings Ltd business</span><span class="de">Unternehmen der Acies Management Holdings Ltd</span></span>
         <span class="footer-acies-url">AciesMGU.com &rarr;</span>
       </div>
     </a>
